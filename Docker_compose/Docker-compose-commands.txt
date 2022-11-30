@@ -1,0 +1,26 @@
+Docker-compose:
+--------------
+
+> Create on file with .yml extension
+  --> vi docker-compose.yml
+       version: '3'
+         services:
+           web:
+              image: nginx
+              ports:
+              - 9090:80
+
+           database: 
+              image: redis
+
+->. To start the docker-compose file
+--> docker-compose up -d
+
+->. To stop the docker-compose file
+--> docker-compose down
+
+->. Scale up the services in the docker-compose file
+--> docker-compose up -d --scale <service_name>=<no-of-service> --scale <service_name>=<no-of-service>
+
+->. To validate docker-compose file
+--> docker-compose config

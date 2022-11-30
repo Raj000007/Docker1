@@ -1,0 +1,39 @@
+FROM amazonlinux
+MAINTAINER projectsr27@gmail.com
+RUN yum update -y
+RUN yum install -y wget
+RUN yum install -y tar
+RUN yum install -y gzip
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.68/bin/apache-tomcat-9.0.68.tar.gz
+RUN tar -xf apache-tomcat-9.0.68.tar.gz
+RUN yum install -y java
+RUN sh apache-tomcat-9.0.68/bin/startup.sh
+
+
+FROM amazonlinux
+MAINTAINER projectsr27@gmail.com
+RUN mkdir tomcat
+WORKDIR /tomcat
+RUN yum update -y
+ADD apache-tomcat-9.0.68.tar.gz /tomcat
+RUN yum install -y java
+RUN sh apache-tomcat-9.0.68/bin/startup.sh
+
+
+FROM amazonlinux
+MAINTAINER projectsr27@gmail.com
+RUN mkdir tomcat
+WORKDIR /tomcat
+RUN yum update -y
+ADD apache-tomcat-9.0.68.tar.gz /tomcat
+COPY . .
+RUN yum install -y java
+EXPOSE 8080
+
+FROM amazonlinux
+MAINTAINER projectsr27@gmail.com
+RUN mkdir tomcat && yum update -y && yum install -y java
+WORKDIR /tomcat
+ADD apache-tomcat-9.0.68.tar.gz /tomcat
+COPY . .
+EXPOSE 8080

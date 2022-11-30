@@ -1,0 +1,75 @@
+1. To download the image from docker hub
+--> docker pull <image name>
+
+2. To see the images that are downloaded
+--> docker images
+
+3. To convert image into container 
+--> docker run -it -d -p <new_port>:<default_port> <image_id>
+
+4. To see the containers 
+--> docker ps
+
+5. To convert the image into container without port number 
+--> docker run -it -d <image_id>
+
+6. To Go inside the container
+--> docker exec -it <container_id> bash
+
+7. To stop the container
+--> docker stop <container_id>
+
+8. To see both running and stopped containers 
+--> docker ps -a
+
+9. To start the container 
+--> docker start <container_id>
+
+10. to delete a container (running)
+--> docker rm -f <container_id>
+
+11. To delete thge images
+--> docker rmi -f <image_id>
+
+12. To login to the dockerhub
+--> docker login
+
+
+Activity:
+-------
+
+1.Pull one image amazon_linux
+2.Create a container of amazon_linux
+3.Get inside the container
+   Update the amazon_linux container
+
+  > Install wget
+   -> yum install -y wget
+
+  > download the apache tomcat (https://tomcat.apache.org/download-90.cgi#9.0.65)
+   ->wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
+   ->ls
+
+  > Untar the apache-tomcat-9.0.65.tar.gz
+   -> yum install -y tar         --> Installing tar
+   -> yum install -y gzip       --> Installing Gzip
+   ->tar -xf apache-tomcat-9.0.65.tar.gz
+
+  > We need to install java as a depedency for the apache tomcat
+   -> yum install -y java
+
+  > We need to start apache_tomcat
+   -> sh apache-tomcat-9.0.65/bin/startup.sh
+
+13. To save the container 
+--> docker commit <container_id> <docker_hub_username/repositry_name>
+
+14. To push the image into the repository
+--> docker push <docker_hub_username/repositry_name>
+
+Create a container using the new image that is created and go inside the container and start apache tomcat 
+and public_ip:newly_created_port_number
+
+
+
+

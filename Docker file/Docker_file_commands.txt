@@ -1,0 +1,23 @@
+
+
+FROM ----> It will download the image from the docker hub
+
+               Ex: FROM amazonlinux
+
+RUN ----> It will excecute the commands in thge dockerfile to create the image
+
+              Ex: RUN yum update -y
+
+EXPOSE ----> It will expose the [port for the image that you have created 
+    
+              Ex: EXPOSE 8080:8080
+
+WORKDIR ---->  Whatever the instructions given in the dockerfile in which  directory it as to run in the container
+
+               Ex: WORKDIR /<directory_name>
+
+ADD ----> Copy the files that are present in build context file and also it will extract the files 
+
+             Ex: ADD . .  
+
+ 

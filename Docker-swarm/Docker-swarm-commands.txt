@@ -1,0 +1,32 @@
+1. To make the docker host manager node 
+--> docker swarm init 
+     when you type the command you will get the token in the manager docker host copy that token and paste it in slave node 
+
+2. To add the worker to the docker swarm 
+    Example:
+    docker swarm join --token SWMTKN-1-267sejn9if5uxoo18cryrxt8w4vq4bssv5amrbf5mdb7oouf97-cuach5ow4j4lqozyxevt18wsm 172.31.44.159:2377
+
+3. To see the nodes in the docker swarm
+--> docker node ls
+     Note: This command should be enter in manager node 
+
+4. If the slave need to leave from the docker swarm cluster 
+--> docker swarm leave 
+     Note: This command should be enter in slave node 
+
+5. If you want to remove the node from docker swarm cluster 
+--> docker node rm <node_id>
+
+6. If you want the token to add node to cluster 
+--> docker swarm join-toker worker
+     Note: This should be entered in manager node
+
+7. To create the service in the manager 
+--> docker service create --name <service_name> --replicas <number of replicas> --publish <port_number> <image_name>
+
+8. To see the services running
+--> docker service ls
+     Note: This command should be enter in manager node
+
+9. To remove the services from the docker swarm
+--> docker service rm <service_name> 

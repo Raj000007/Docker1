@@ -1,0 +1,33 @@
+Docker-volume
+------------
+
+20. To create the volume
+--> docker volume create <volume_name>
+
+21. To list the docker volume
+--> docker volume ls
+
+22. To see the detailed information of the volumes
+--> docker volume inspect <volume_name>
+
+23. To delete the volume 
+--> docker volume rm <volume_name>
+
+
+Activity:
+-------
+
+>Create one volume
+--> docker volume create wddm5
+
+>Pull httpd image
+-->docker pull httpd  
+
+> Create the container using the image httpd and attach the volume you have created
+--> docker run -itd -p 8087:80 -v wddm5:/usr/local/apache2/htdocs/ httpd
+
+> Get inside the container
+--> docker exec -it <container_id> bash 
+
+>> cd htdocs
+>> touch sample.txt
